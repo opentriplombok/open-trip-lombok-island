@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open Trip Booking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-teal-600 text-white p-4 shadow">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Open Trip Booking</h1>
+      <a href="#booking" class="bg-white text-teal-600 px-4 py-2 rounded-full">Booking Sekarang</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-cover bg-center h-[50vh] flex items-center justify-center text-white" style="background-image: url('https://source.unsplash.com/1600x900/?lombok,waterfall');">
+    <div class="bg-black bg-opacity-50 p-6 rounded-lg text-center">
+      <h2 class="text-3xl font-bold mb-2">Booking Open Trip Air Terjun & Gunung</h2>
+      <p class="text-md">Isi form dan kami akan menghubungi Anda via WhatsApp</p>
+    </div>
+  </section>
+
+  <!-- Form Booking -->
+  <section class="py-12 px-4 bg-white" id="booking">
+    <div class="max-w-xl mx-auto">
+      <h3 class="text-2xl font-bold text-center mb-6">Form Booking Cepat</h3>
+      <form onsubmit="return kirimBooking();" class="space-y-4">
+        <input type="text" id="nama" placeholder="Nama Anda" required class="w-full border p-2 rounded" />
+        <input type="date" id="tanggal" required class="w-full border p-2 rounded" />
+        <input type="number" id="jumlah" placeholder="Jumlah Orang" required class="w-full border p-2 rounded" />
+        <select id="paket" required class="w-full border p-2 rounded">
+          <option value="">Pilih Paket Trip</option>
+          <option>Trip Air Terjun Tibu Sedalam</option>
+          <option>Trip Air Terjun Timponan</option>
+          <option>Trip Rinjani</option>
+          <option>Trip Seven Summit Sembalun</option>
+        </select>
+        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded w-full">Kirim via WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Galeri -->
+  <section class="py-12 px-4 bg-gray-100" id="galeri">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-2xl font-bold text-center mb-6">Galeri Perjalanan</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <img src="https://source.unsplash.com/400x300/?lombok,waterfall" class="rounded shadow" />
+        <img src="https://source.unsplash.com/400x300/?lombok,beach" class="rounded shadow" />
+        <img src="https://source.unsplash.com/400x300/?mountain,indonesia" class="rounded shadow" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12 px-4 bg-white" id="faq">
+    <div class="max-w-2xl mx-auto">
+      <h3 class="text-2xl font-bold mb-6 text-center">Pertanyaan Umum</h3>
+      <div class="space-y-4">
+        <div>
+          <h4 class="font-semibold">❓ Apa yang termasuk dalam paket?</h4>
+          <p class="text-sm text-gray-600">Transport lokal, tiket masuk, makan siang, dan guide lokal berpengalaman.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold">❓ Bagaimana cara konfirmasi pembayaran?</h4>
+          <p class="text-sm text-gray-600">Setelah booking, admin akan mengirimkan detail pembayaran melalui WhatsApp.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold">❓ Apakah bisa refund jika batal ikut?</h4>
+          <p class="text-sm text-gray-600">Refund bisa dilakukan maksimal H-5 sebelum keberangkatan sesuai kebijakan kami.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Script -->
+  <script>
+  function kirimBooking() {
+    const nama = document.getElementById('nama').value;
+    const tanggal = document.getElementById('tanggal').value;
+    const jumlah = document.getElementById('jumlah').value;
+    const paket = document.getElementById('paket').value;
+
+    const pesan = `Halo! Saya mau booking open trip:\nNama: ${nama}\nTanggal: ${tanggal}\nJumlah orang: ${jumlah}\nPaket: ${paket}`;
+    const nomorWA = '081918406900';
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+    window.open(url, '_blank');
+    return false;
+  }
+  </script>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-gray-500">
+    &copy; 2025 Open Trip Lombok. All rights reserved.
+  </footer>
+</body>
+</html>
